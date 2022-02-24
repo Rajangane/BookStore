@@ -7,21 +7,19 @@ using System.Text;
 
 namespace BusinessLayer.Services
 {
-    public class BookBL : IBookBL
+    public class CartBL : ICartBL
     {
-        IBookRL bookRL;
-        public BookBL(IBookRL bookRL)
+        ICartRL cartRL;
+        public CartBL(ICartRL cartRL)
         {
-            this.bookRL = bookRL;
+            this.cartRL = cartRL;
         }
 
-
-
-        public string AddBook(BookModel book)
+        public string AddToCart(CartModel cartModel)
         {
             try
             {
-                return this.bookRL.AddBook(book);
+                return this.cartRL.AddToCart(cartModel);
             }
             catch (Exception e)
             {
@@ -29,11 +27,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public string UpdateBookDetails(BookModel update)
+        public string UpdateCartQuantity(int cartId, int quantity)
         {
             try
             {
-                return this.bookRL.UpdateBookDetails(update);
+                return this.cartRL.UpdateCartQuantity(cartId, quantity);
             }
             catch (Exception e)
             {
@@ -41,11 +39,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public string DeleteBook(int bookId)
+        public List<CartModel> RetrieveCartDetails(int userId)
         {
             try
             {
-                return this.bookRL.DeleteBook(bookId);
+                return this.cartRL.RetrieveCartDetails(userId);
             }
             catch (Exception e)
             {
@@ -53,23 +51,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public object RetrieveBookDetails(int bookId)
+        public string DeleteCart(int cartId)
         {
             try
             {
-                return this.bookRL.RetrieveBookDetails(bookId);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public List<BookModel> GetAllBooks()
-        {
-            try
-            {
-                return this.bookRL.GetAllBooks();
+                return this.cartRL.DeleteCart(cartId);
             }
             catch (Exception e)
             {
@@ -77,4 +63,5 @@ namespace BusinessLayer.Services
             }
         }
     }
+
 }

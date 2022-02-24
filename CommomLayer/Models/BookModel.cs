@@ -9,12 +9,12 @@ namespace CommomLayer.Models
         public int BookId { get; set; }
         public string BookName { get; set; }
         public string AuthorName { get; set; }
-        public string BookDescription { get; set; }
-        public string BookImage { get; set; }
-        public string Quantity { get; set; }
-        public int Price { get; set; }
         public int DiscountPrice { get; set; }
-        public int Rating { get; set; }
-        public int RatingCount { get; set; }
+        public int OriginalPrice { get; set; }
+        public string BookDescription { get; set; }
+        public float Rating { get; set; }
+        public int Reviewer { get; set; }
+        public string Image { get; set; }
+        public int BookCount { get; set; }
     }
 }
