@@ -23,9 +23,7 @@ namespace RepositoryLayer.Services
         }
 
         public IConfiguration Configuration { get; }
-       
-
-
+      
         public bool Register(RegisterModel register)
         {
             sqlConnection = new SqlConnection(this.Configuration.GetConnectionString("BookStoreDB"));
